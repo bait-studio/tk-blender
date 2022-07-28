@@ -371,21 +371,22 @@ class BlenderEngine(Engine):
                 "\n\n" % (APPLICATION_NAME, app_ver)
             )
 
+            #MB - Commented out all of this to avoid PySide not found bug.
             # determine if we should show the compatibility warning dialog:
-            show_warning_dlg = self.has_ui and SHOW_COMP_DLG not in os.environ
+            # show_warning_dlg = self.has_ui and SHOW_COMP_DLG not in os.environ
 
-            if show_warning_dlg:
-                # make sure we only show it once per session
-                os.environ[SHOW_COMP_DLG] = "1"
+            # if show_warning_dlg:
+            #     # make sure we only show it once per session
+            #     os.environ[SHOW_COMP_DLG] = "1"
 
-                min_ver = self.get_setting("compatibility_dialog_min_version")
-                if build_version[0] < min_ver:
-                    show_warning_dlg = False
+            #     min_ver = self.get_setting("compatibility_dialog_min_version")
+            #     if build_version[0] < min_ver:
+            #         show_warning_dlg = False
 
-            if show_warning_dlg:
-                # Note, title is padded to try to ensure dialog isn't insanely
-                # narrow!
-                self.show_info(msg)
+            # if show_warning_dlg:
+            #     # Note, title is padded to try to ensure dialog isn't insanely
+            #     # narrow!
+            #     self.show_info(msg)
 
             # always log the warning to the script editor:
             self.logger.warning(msg)
